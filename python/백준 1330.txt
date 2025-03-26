@@ -7,6 +7,7 @@ elif A < B:
 else:
     print('==')
 
+===========================================================
 
 year = int(input())
 
@@ -14,3 +15,18 @@ if ((year%4 == 0)and(year%100 != 0)) or (year%400 == 0):
     print('1')
 else:
     print('0')
+
+
+
+==========================================================
+
+
+H,M = map(int,input().split())
+
+if (M>44) :
+	print(H,M-45)
+elif  (H==0)and(M<=44) :
+	print(23,M+15)
+
+else :
+	print(H-1,M+15)
