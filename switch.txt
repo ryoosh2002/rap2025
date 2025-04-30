@@ -1,0 +1,21 @@
+import RPi.GPIO as GPIO
+
+import time
+switch = 10
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(switch, GPIO.IN, pull_up_down =GPIO.PUD_DOWN)
+
+while True:
+    if GPIO.input(switch) == GPIO.HIGH:
+        print("Button was pushed!")
+        time.sleep(1)
+        
+    else:
+        print("Button was not pushed!")
+        time.sleep(1)
+        
+        
+    
