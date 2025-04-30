@@ -1,0 +1,31 @@
+import RPi.GPIO as GPIO
+
+import time
+switch = 10
+LED = 11  
+led_on = False
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(LED, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(switch, GPIO.IN, pull_up_down =GPIO.PUD_DOWN)
+try:
+    
+    while True:
+        if GPIO.input(switch) == GPIO.HIGH and led_on == False:
+            led_on = not led_on
+            print("Button was pushed!")
+            GPIO.output(LED, GPIO.HIGH)
+            time.sleep(1)
+        
+        if GPIO.input(switch) == GPIO.HIGH and led_on == True:
+            led_on = not led_on
+            print("Button was pushed!")
+            GPIO.output(LED, GPIO.LOW)
+            time.sleep(1)
+           
+        
+finally:
+        GPIO.cleanup()
+
